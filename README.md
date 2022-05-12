@@ -1,7 +1,7 @@
 # Kernels
 
-Kernels.py contains Python3 class that evaluates the medium induced emission spectrum and rate.
-Evolution.py contains as Python3 class that uses the emission rate from Kernels.py to evaluate the fragmentation function numerically by solving a differential equation.
+-- Kernels.py contains Python3 class that evaluates the medium induced emission spectrum and rate.
+-- Evolution.py contains as Python3 class that uses the emission rate from Kernels.py to evaluate the fragmentation function numerically by solving a differential equation.
 
 This contrib is developed and maintained by:
   Johannes H. Isaksen <johannes.isaksen@uib.no>
