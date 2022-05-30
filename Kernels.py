@@ -46,6 +46,7 @@ class Kernels:
     def P(self, z):
         # Soft limit
         if self.cases==0:
+            # For gluons we use the symetric z,1-z limit.
             if   self.flavs[0]==21: return self.CA/(z*(1.-z))
             elif self.flavs[0]!=21: return 2.*self.CF/z
         # g --> g(z) + g(1-z)
@@ -324,7 +325,7 @@ class Kernels:
         return (self.dIdz_NR2(z,t+1e-8,p0,limit)-self.dIdz_NR2(z,t,p0,limit))/1e-8
 
     '''Full Interpolation'''
-    def dIdz_Full(self, z, t, p0=100, limit=False, smooth=False):
+    def dIdz_Full(self, z, t, p0=100, limit=False, smooth=True):
         w = z*(1.-z)*p0
         if t==0: return 0.
         wcrit = min(self.wBH,self.wBH*t/self.lam)
@@ -341,7 +342,7 @@ class Kernels:
         if w<wcrit: return self.dIdz_NR1(z,t,p0,limit)
         else:       return self.dIdz_IOE(z,t,p0,limit)
 
-    def dIdzdL_Full(self, z, t, p0=100, limit=False, smooth=False):
+    def dIdzdL_Full(self, z, t, p0=100, limit=False, smooth=True):
         w = z*(1.-z)*p0
         if t==0: return 0.
         wcrit = min(self.wBH,self.wBH*t/self.lam)
@@ -358,6 +359,9 @@ class Kernels:
         if w<wcrit: return self.dIdzdL_NR1(z,t,p0,limit)
         else:       return self.dIdzdL_IOE(z,t,p0,limit)
 
+
+#
+print('Quick test of the class that evaluates the medium induced spectrum and the rate.')
 
 z0=1e-6; t0=2.; p0=1e4
 kern=Kernels([21,21,21],0)

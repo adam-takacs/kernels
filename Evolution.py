@@ -104,5 +104,7 @@ class Evolution:
                and t are the columns as defined in Evolution::xval,\n          \
                and Evolution::qval.")
 
+#
+print('Quick test that solves the evolution equation in the soft limit.')
 evol = Evolution()
 evol.run(0.5)
